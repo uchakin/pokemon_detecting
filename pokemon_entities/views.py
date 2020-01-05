@@ -64,7 +64,7 @@ def show_pokemon(request, pokemon_id):
             'img_url': requested_pokemon.previous_evolution.img_url.url
         }
     else:
-        previous_evolution = ''
+        previous_evolution = None
 
     try:
         next_pokemon = requested_pokemon.next_evolution.all()[0]
@@ -74,7 +74,7 @@ def show_pokemon(request, pokemon_id):
             'img_url': next_pokemon.img_url.url
         }
     except IndexError:
-        next_evolution = ''
+        next_evolution = None
 
     pokemon = {
         'pokemon_id': requested_pokemon.id,
